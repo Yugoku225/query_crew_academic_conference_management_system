@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Users{% endblock %}
+
+{% block content %}
+<h2>Users</h2>
+<a href="{{ url_for('user_bp.add_user') }}" class="btn btn-primary">Add New User</a>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+                <a href="{{ url_for('user_bp.get_user', user_id=user.id) }}">View</a>
+                <a href="{{ url_for('user_bp.update_user', user_id=user.id) }}">Edit</a>
+                <form method="POST" action="{{ url_for('user_bp.delete_user', user_id=user.id) }}" style="display: inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

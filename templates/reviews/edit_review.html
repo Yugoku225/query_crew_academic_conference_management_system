@@ -1,0 +1,19 @@
+<!-- templates/reviews/edit_review.html -->
+{% extends "base.html" %}
+
+{% block title %}Edit Review{% endblock %}
+
+{% block content %}
+    <h2>Edit Review</h2>
+    <form action="{{ url_for('reviews_bp.update_review', review_id=review.id) }}" method="POST">
+        <div class="form-group">
+            <label for="comments">Comments</label>
+            <textarea name="comments" id="comments" class="form-control">{{ review.comments }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <input type="number" name="rating" id="rating" class="form-control" value="{{ review.rating }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Update Review</button>
+    </form>
+{% endblock %}

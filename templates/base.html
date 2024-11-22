@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Conference Management System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Conference Management System</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('user_bp.get_all_users') }}">Users</a></li>
+                <li><a href="{{ url_for('conference_bp.get_conferences') }}">Conferences</a></li>
+                <li><a href="{{ url_for('paper_bp.get_papers') }}">Papers</a></li>
+                <li><a href="{{ url_for('reviews_bp.get_reviews') }}">Reviews</a></li>
+                <li><a href="{{ url_for('session_bp.get_sessions') }}">Sessions</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Conference Management System. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

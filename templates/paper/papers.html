@@ -1,0 +1,37 @@
+<!-- templates/paper/papers.html -->
+{% extends "base.html" %}
+
+{% block title %}Papers - Conference Management System{% endblock %}
+
+{% block content %}
+    <h2>Papers</h2>
+    <a href="{{ url_for('paper_bp.add_paper_page') }}">Add New Paper</a>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Abstract</th>
+                <th>Submission Date</th>
+                <th>Author ID</th>
+                <th>Conference ID</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paper in papers %}
+                <tr>
+                    <td>{{ paper.title }}</td>
+                    <td>{{ paper.abstract }}</td>
+                    <td>{{ paper.submission_date }}</td>
+                    <td>{{ paper.author_id }}</td>
+                    <td>{{ paper.conference_id }}</td>
+                    <td>
+                        <a href="{{ url_for('paper_bp.get_paper', paper_id=paper.id) }}">View</a>
+                        <a href="{{ url_for('paper_bp.update_paper_page', paper_id=paper.id) }}">Edit</a>
+                        <a href="{{ url_for('paper_bp.delete_paper', paper_id=paper.id) }}" onclick="return confirm('Are you sure you want to delete this paper?')">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

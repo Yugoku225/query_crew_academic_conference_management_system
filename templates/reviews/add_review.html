@@ -1,0 +1,27 @@
+<!-- templates/reviews/add_review.html -->
+{% extends "base.html" %}
+
+{% block title %}Add Review{% endblock %}
+
+{% block content %}
+    <h2>Add New Review</h2>
+    <form action="{{ url_for('reviews_bp.add_review') }}" method="POST">
+        <div class="form-group">
+            <label for="comments">Comments</label>
+            <textarea name="comments" id="comments" class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="rating">Rating</label>
+            <input type="number" name="rating" id="rating" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="paper_id">Paper ID</label>
+            <input type="number" name="paper_id" id="paper_id" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="reviewer_id">Reviewer ID</label>
+            <input type="number" name="reviewer_id" id="reviewer_id" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Review</button>
+    </form>
+{% endblock %}

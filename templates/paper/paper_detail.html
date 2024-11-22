@@ -1,0 +1,14 @@
+<!-- templates/paper/paper_detail.html -->
+{% extends "base.html" %}
+
+{% block title %}Paper Details{% endblock %}
+
+{% block content %}
+    <h2>{{ paper.title }}</h2>
+    <p><strong>Abstract:</strong> {{ paper.abstract }}</p>
+    <p><strong>Submission Date:</strong> {{ paper.submission_date }}</p>
+    <p><strong>Author ID:</strong> {{ paper.author_id }}</p>
+    <p><strong>Conference ID:</strong> {{ paper.conference_id }}</p>
+    <a href="{{ url_for('paper_bp.update_paper_page', paper_id=paper.id) }}">Edit</a>
+    <a href="{{ url_for('paper_bp.delete_paper', paper_id=paper.id) }}" onclick="return confirm('Are you sure you want to delete this paper?')">Delete</a>
+{% endblock %}

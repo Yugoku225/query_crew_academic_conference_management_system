@@ -1,0 +1,27 @@
+<!-- templates/sessions/edit_session.html -->
+{% extends "base.html" %}
+
+{% block title %}Edit Session{% endblock %}
+
+{% block content %}
+    <h2>Edit Session</h2>
+    <form action="{{ url_for('session_bp.update_session', session_id=session.id) }}" method="POST">
+        <div class="form-group">
+            <label for="title">Session Title</label>
+            <input type="text" name="title" id="title" class="form-control" value="{{ session.title }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" class="form-control">{{ session.description }}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="end_time">End Time</label>
+            <input type="time" name="end_time" id="end_time" class="form-control" value="{{ session.end_time.strftime('%H:%M:%S') }}" required>
+        </div>
+        <div class="form-group">
+            <label for="conference_id">Conference ID</label>
+            <input type="number" name="conference_id" id="conference_id" class="form-control" value="{{ session.conference_id }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Session</button>
+    </form>
+{% endblock %}
