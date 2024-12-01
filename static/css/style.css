@@ -1,47 +1,193 @@
-/* static/css/style.css */
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
 }
 
+body {
+    background-color: #f4f4f4; /* Light gray background for a soothing effect */
+    color: #333; /* Dark text for contrast */
+    line-height: 1.6;
+}
+
+/* Header */
 header {
-    background: #333;
-    color: #fff;
-    padding: 10px 20px;
+    background-color: #e0f7fa; /* Soft pastel cyan */
+    color: #333;
+    padding: 20px 5%; /* Responsive padding */
     text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* For pseudo-element positioning */
 }
 
 header h1 {
-    margin: 0;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* Modern touch */
+}
+
+/* Navigation */
+nav {
+    background-color: #e0f7fa; /* Match header */
+    padding: 10px 0;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
 }
 
 nav ul li a {
-    color: #fff;
+    color: #00796b; /* Soft teal for links */
     text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for hover */
 }
 
+nav ul li a:hover {
+    background-color: rgba(0, 121, 107, 0.2); /* Light teal hover effect */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Main Content */
 main {
-    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 30px;
+    background: #ffffff; /* White background for content */
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease; /* Fade-in animation */
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background: #333;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00796b; /* Soft teal for headings */
+}
+
+/* Section with Image */
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0;
+    transition: transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.section:hover {
+    transform: scale(1.02); /* Slightly enlarge on hover */
+}
+
+.section img {
+    max-width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease; /* Smooth transition for image */
+}
+
+.section img:hover {
+    transform: scale(1.05); /* Enlarge image on hover */
+}
+
+p {
+    font-size: 1rem;
+    color: #555; /* Medium gray for body text */
+    margin-bottom: 15px;
+}
+
+/* Buttons */
+a.btn-primary, button {
+    display: inline-block;
+    background-color: #80deea; /* Soft pastel cyan button */
     color: #fff;
-    position: absolute;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for hover */
+}
+
+a.btn-primary:hover, button:hover {
+    background-color: #4dd0e1; /* Darker cyan on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+/* Table */
+table {
     width: 100%;
-    bottom: 0;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table thead {
+    background-color: #b2ebf2; /* Light cyan for table header */
+    color: #333;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd; /* Light gray border */
+}
+
+table tbody tr:hover {
+    background : rgba(0, 121, 107, 0.1); /* Light teal hover effect */
+}
+
+/* Footer */
+footer {
+    background-color: #e0f7fa; /* Match header */
+    color: #333;
+    text-align: center;
+    padding: 15px 5%; /* Responsive padding */
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center; /* Center items in column layout */
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    a.btn-primary, button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    /* Adjust font sizes for smaller screens */
+    h1 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
 }

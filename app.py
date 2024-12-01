@@ -27,6 +27,9 @@ def create_app():
     app.register_blueprint(session_bp)
 
 
+    app.secret_key = "abcdefg"
+
+
     @app.route('/')
     def home():
         return render_template('home.html')
